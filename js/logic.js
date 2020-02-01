@@ -13,11 +13,18 @@ function addTodo(array,obj){
     
 
 }
+function deleteTodo(array,id){
+    return array.filter(function(obj){
+        return obj.id !=id;
+    })
+}
+
 
 if(typeof exports !== "undefined"){
     module.exports={
         testfun,
         makeObject,
         addTodo,
+        deleteTodo
     }
 }
