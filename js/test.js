@@ -31,9 +31,16 @@ test("delete todo with todo id",()=>{
     expect(actual).toEqual(expected);
 
 })
-test("update todo with todo id",()=>{
+test("update todo with todo id on obj",()=>{
     const actual=updateTodo([{id:1,description:"name",done:false}],{id:1,description:"name",done:true});
     const expected=[{id:1,description:"name",done:true}];
     expect(actual).toEqual(expected);
 
 })
+test("update todo with todo id not on obj",()=>{
+    const actual=updateTodo([{id:1,description:"name",done:false}],{id:2,description:"name",done:true});
+    const expected=[{id:1,description:"name",done:false}];
+    expect(actual).toEqual(expected);
+
+})
+
