@@ -2,8 +2,8 @@ function testfun(){
     return 1+1;
 }
 
-function makeObject(id,description,done){
-    return {id:id,description:description,done:done};
+function makeObject(arr,description,done){
+    return {id:arr.length+1,description:description,done:done};
 }
 function addTodo(array,obj){
     // let updatedTodo=[];

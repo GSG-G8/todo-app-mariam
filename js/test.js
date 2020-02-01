@@ -14,7 +14,7 @@ test("test my file",function(){
 
 
 test("convert var to object",()=>{
-    const actual=makeObj(1,"todoname",false);
+    const actual=makeObj([],"todoname",false);
     const expected={id:1,description:"todoname",done:false};
     expect(actual).toEqual(expected);
 })
