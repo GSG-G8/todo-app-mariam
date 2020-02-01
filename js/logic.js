@@ -14,7 +14,7 @@ function addTodo(array,obj){
 
 }
 
-if(typeof(module) !=undefined){
+if(typeof exports !== "undefined"){
     module.exports={
         testfun,
         makeObject,
