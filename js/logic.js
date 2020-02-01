@@ -18,6 +18,18 @@ function deleteTodo(array,id){
         return obj.id !=id;
     })
 }
+function updatedTodo(array,newobj){
+     return array.map(function(obj){
+         if(obj.id===newobj.id){
+             return newobj;
+         }
+         else{
+             return obj;
+         }}
+     )}
+  
+
+
 
 
 if(typeof exports !== "undefined"){
@@ -25,6 +37,7 @@ if(typeof exports !== "undefined"){
         testfun,
         makeObject,
         addTodo,
-        deleteTodo
+        deleteTodo,
+        updatedTodo,
     }
 }
