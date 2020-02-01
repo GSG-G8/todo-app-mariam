@@ -9,7 +9,7 @@ function addTodo(array,obj){
     // let updatedTodo=[];
     // updatedTodo= JSON.parse(JSON.stringify(array))
     // return updatedTodo.push(obj);
-    return [...array,obj]
+    return [...array,obj];
     
 
 }

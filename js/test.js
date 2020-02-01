@@ -19,7 +19,7 @@ test("convert var to object",()=>{
 
 
 test("add new todo to todo array",()=>{
-    const actual=addTodo([],{id:1,description:"name",done:false});
-    const expected=[{id:1,description:"name",done:false}];
+    const actual=addTodo([{id:1,description:"name",done:false}],{id:2,description:"name",done:false});
+    const expected=[{id:1,description:"name",done:false},{id:2,description:"name",done:false}];
     expect(actual).toEqual(expected);
 })
