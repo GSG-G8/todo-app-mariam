@@ -1,71 +1,71 @@
-const container=document.querySelector(".container");
-// const done=document.querySelector(".is_done");
-const description=document.querySelector(".input__description");
-const addBtn=document.querySelector(".button-addTodo");
-const btnremovelocal=document.querySelector(".button_clear");
+// part 2 linking it all together
+// The function here is called an iife,
+// it keeps everything inside hidden from the rest of our application
+(function() {
+  // This is the dom node where we will keep our todo
+  var container = document.getElementById("todo-container");
+  var addTodoForm = document.getElementById("add-todo");
 
-let todo=[]
-let data=localStorage.getItem("todoArray");
-if(data){
-    todo=JSON.parse(data);
-}
-else{
-    todo=[];
-}
+  var state = [
+    { id: -3, description: "first todo" },
+    { id: -2, description: "second todo" },
+    { id: -1, description: "third todo" }
+  ]; // this is our initial todoList
 
-window.onload =show();
+  // This function takes a todo, it returns the DOM node representing that todo
+  var createTodoNode = function(todo) {
+    var todoNode = document.createElement("li");
+    // you will need to use addEventListener
 
-function add(){
-    const todoobject=makeObject(todo,description.value,false);
-    todo=addTodo(todo,todoobject);
-    localStorage.setItem("todoArray", JSON.stringify(todo));
-    location.reload();
-}
-function show(){
-    for(let i=0;i<todo.length;i++){
-        let todoblock=document.createElement('div');
-        todoblock.classList.add('todo_item');
+    // add span holding description
 
-        let done=document.createElement('input');
-        done.classList.add('is_done');
-        done.type="checkbox";
-    
-        let desc=document.createElement('input');
-        desc.value=todo[i].description;
-        desc.classList.add('input__todo');
-        desc.disabled="disabled";
-    
-        
-        const editbtn=document.createElement('button');
-        editbtn.textContent="edit todo";
-        editbtn.classList.add('button_edit');
-    
-       
-        const deletebtn=document.createElement('button');
-        deletebtn.textContent="delete todo";
-        deletebtn.classList.add('button_delete');
-    
-        container.appendChild(todoblock);
-        todoblock.appendChild(done);
-        todoblock.appendChild(desc);
-        todoblock.appendChild(editbtn);
-        todoblock.appendChild(deletebtn);
-    
-    }
-}
+    // this adds the delete button
+    var deleteButtonNode = document.createElement("button");
+    deleteButtonNode.addEventListener("click", function(event) {
+      var newState = todoFunctions.deleteTodo(state, todo.id);
+      update(newState);
+    });
+    todoNode.appendChild(deleteButtonNode);
 
-function clear(){
-    localStorage.clear();
-    location.reload();
-}
+    // add markTodo button
 
-    
-addBtn.addEventListener('click',()=>{
-    add();
-});
+    // add classes for css
 
-btnremovelocal.addEventListener('click',clear);
+    return todoNode;
+  };
 
-// clear()
+  // bind create todo form
+  if (addTodoForm) {
+    addTodoForm.addEventListener("submit", function(event) {
+      // https://developer.mozilla.org/en-US/docs/Web/Events/submit
+      // what does event.preventDefault do?
+      // what is inside event.target?
 
+      var description = "?"; // event.target ....
 
+      // hint: todoFunctions.addTodo
+      var newState = []; // ?? change this!
+      update(newState);
+    });
+  }
+
+  // you should not need to change this function
+  var update = function(newState) {
+    state = newState;
+    renderState(state);
+  };
+
+  // you do not need to change this function
+  var renderState = function(state) {
+    var todoListNode = document.createElement("ul");
+
+    state.forEach(function(todo) {
+      todoListNode.appendChild(createTodoNode(todo));
+    });
+
+    // you may want to add a class for css
+    container.replaceChild(todoListNode, container.firstChild);
+  };
+
+  if (container) renderState(state);
+})();
