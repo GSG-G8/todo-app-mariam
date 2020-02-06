@@ -1,29 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>to do app</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-  <main>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>tdd todo</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
     <header>
-        <h1 class="header__h1__title">ToDo App</h1>
-        
+      <h1 class="header__h1__title">ToDo App</h1>
     </header>
-    <div class="input__group">
-        <input type="text" class="input__description" placeholder="example : play football">
-        <button class="button-addTodo"><i class="fa fa-plus"></i></button>
-        <button class="button_clear"> <i class="fa fa-refresh"></i></button>
+    <div id="todo-container" class="container">
+      <ul></ul>
     </div>
-
-    <div class="container">
-
-   </div>
-   </main>
-   <script src="./js/logic.js"></script>
-   <script src="./js/dom.js"></script>
-</body>
+    <form id="add-todo" class="input__group">
+      <input
+        type="text"
+        class="input__description"
+        placeholder="example : play football"
+      />
+      <button class="button-addTodo"><i class="fa fa-plus"></i></button>
+      <button class="button_clear"><i class="fa fa-refresh"></i></button>
+    </form>
+  </body>
+  <script type="text/javascript" src="./logic.js"></script>
+  <script type="text/javascript" src="./dom.js"></script>
 </html>
