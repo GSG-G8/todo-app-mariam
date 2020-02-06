@@ -61,15 +61,15 @@ var todoFunctions = {
       }
     });
   },
-  sortTodos: function(todos, sortFunction) {
-    // stretch goal! Do this last
-    // should leave the input arguement todos unchanged (you can use cloneArrayOfObjects)
-    // sortFunction will have same signature as the sort function in array.sort
-    // hint: array.slice, array.sort
-    const sortTodo = todoFunctions.cloneArrayOfObjects(todos);
-    return sortTodo.slice(0).sortTodo.sort((a, b) => a - b);
-  }
-};
+//   sortTodos: function(todos, sortFunction) {
+//     // stretch goal! Do this last
+//     // should leave the input arguement todos unchanged (you can use cloneArrayOfObjects)
+//     // sortFunction will have same signature as the sort function in array.sort
+//     // hint: array.slice, array.sort
+//     const sortTodo = todoFunctions.cloneArrayOfObjects(todos);
+//     return sortTodo.slice(0).sortTodo.sort((a, b) => a - b);
+//   }
+// };
 
 // Why is this if statement necessary?
 // The answer has something to do with needing to run code both in the browser and in Node.js
