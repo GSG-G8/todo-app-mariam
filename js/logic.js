@@ -24,19 +24,26 @@ var todoFunctions = {
   },
 
   addTodo: function(todos, newTodo) {
-    newTodo.concat(cloneArrayOfObjects(todos));
-
     // should leave the input argument todos unchanged (you can use cloneArrayOfObjects)
     // returns a new array, it should contain todos with the newTodo added to the end.
     // add an id to the newTodo. You can use the generateId function to create an id.
     // hint: array.concat
+    const todosNew = todoFunctions.cloneArrayOfObjects(todos);
+    return todosNew.concat({
+      id: todoFunctions.generateId(),
+      description: newTodo,
+      done: false
+    });
   },
   deleteTodo: function(todos, idToDelete) {
     // should leave the input argument todos unchanged (you can use cloneArrayOfObjects)
     // return a new array, this should not contain any todo with an id of idToDelete
     // hint: array.filter
-    return todos.filter(todo => {
-      return todo.id !== idToDelete;
+    const newTodo = todoFunctions.cloneArrayOfObjects(todos);
+    return newTodo.filter(el => {
+      if (el.id !== idToDelete) {
+        return el;
+      }
     });
   },
   markTodo: function(todos, idToMark) {
@@ -44,13 +51,23 @@ var todoFunctions = {
     // in the new todo array, all elements will remain unchanged except the one with id: idToMark
     // this element will have its done value toggled
     // hint: array.map
-    todos.map(todo => {});
+    const doneTodo = todoFunctions.cloneArrayOfObjects(todos);
+    return doneTodo.map(todo => {
+      if (todo.id === idToMark) {
+        todo.done === true ? (todo.done = false) : (todo.done = true);
+        return todo;
+      } else {
+        return todo;
+      }
+    });
   },
   sortTodos: function(todos, sortFunction) {
     // stretch goal! Do this last
     // should leave the input arguement todos unchanged (you can use cloneArrayOfObjects)
     // sortFunction will have same signature as the sort function in array.sort
     // hint: array.slice, array.sort
+    const sortTodo = todoFunctions.cloneArrayOfObjects(todos);
+    return sortTodo.slice(0).sortTodo.sort((a, b) => a - b);
   }
 };
 
