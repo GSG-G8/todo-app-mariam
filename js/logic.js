@@ -42,9 +42,8 @@ var todoFunctions = {
       if (todo.id === idToMark) {
         todo.done ? (todo.done = false) : (todo.done = true);
         return todo;
-      } else {
-        return todo;
       }
+      return todo;
     });
   }
 
