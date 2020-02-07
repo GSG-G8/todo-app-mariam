@@ -56,9 +56,8 @@ var todoFunctions = {
       if (todo.id === idToMark) {
         todo.done === true ? (todo.done = false) : (todo.done = true);
         return todo;
-      } else {
-        return todo;
       }
+      return todo;
     });
   },
 //   sortTodos: function(todos, sortFunction) {
