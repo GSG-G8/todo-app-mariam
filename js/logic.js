@@ -46,16 +46,15 @@ var todoFunctions = {
         return todo;
       }
     });
-  },
-
-  sortTodos: function(todos, sortFunction) {
-    // stretch goal! Do this last
-    // should leave the input arguement todos unchanged (you can use cloneArrayOfObjects)
-    // sortFunction will have same signature as the sort function in array.sort
-    // hint: array.slice, array.sort
-    // const sortTodo = todoFunctions.cloneArrayOfObjects(todos);
-    // return sortTodo.slice(0).sortTodo.sort((a, b) => b - a);
   }
+  // sortTodos: function(todos, sortFunction) {
+  //   // stretch goal! Do this last
+  //   // should leave the input arguement todos unchanged (you can use cloneArrayOfObjects)
+  //   // sortFunction will have same signature as the sort function in array.sort
+  //   // hint: array.slice, array.sort
+  //   // const sortTodo = todoFunctions.cloneArrayOfObjects(todos);
+  //   // return sortTodo.slice(0).sortTodo.sort((a, b) => b - a);
+  // }
 };
 
 // Why is this if statement necessary?
