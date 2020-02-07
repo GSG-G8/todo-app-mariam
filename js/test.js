@@ -17,6 +17,18 @@ test("create new todo", () => {
   const expected = [{ id: 1, description: "descripton", done: false }];
   expect(actual).toEqual(expected);
 });
+//add another todo
+test("create new todo2", () => {
+  const actual = todoFunctions.addTodo(
+    [{ id: 1, description: "descripton", done: false }],
+    "done"
+  );
+  const expected = [
+    { id: 1, description: "descripton", done: false },
+    { id: 2, description: "done", done: false }
+  ];
+  expect(actual).toEqual(expected);
+});
 //delete todo with exist id
 test("delete todo when id on array", () => {
   const actual = todoFunctions.deleteTodo(todoTest, 1);
@@ -54,3 +66,15 @@ test("mark todo on not exist id", () => {
   const expected = todoTest;
   expect(actual).toEqual(expected);
 });
+const sorttodo = [
+  { id: 2, description: "descripton", done: false },
+  { id: 1, description: "descripton", done: true }
+];
+// test("sort", () => {
+//   const actual = todoFunctions.sortTodos(sorttodo);
+//   const expected = [
+//     { id: 1, description: "descripton", done: false },
+//     { id: 2, description: "descripton", done: true }
+//   ];
+//   expect(actual).toEqual(expected);
+// });
