@@ -22,7 +22,7 @@ body {
   border: none;
   margin-bottom: 30px;
 }
-.form__button__addTodo {
+.btn-addtodo {
   border-radius: 50%;
   background-color: teal;
   padding: 15px;
@@ -34,7 +34,7 @@ body {
   opacity: 0.6;
   cursor: pointer;
 }
-.form__button__addTodo:hover {
+.btn-addtodo:hover {
   opacity: 1;
 }
 .container {
