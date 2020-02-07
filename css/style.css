@@ -22,13 +22,8 @@ body {
   border: none;
   margin-bottom: 30px;
 }
-<<<<<<< HEAD
-.btn-addtodo {
-  border-radius: 50%;
-=======
 .form__button__addTodo {
   border-radius: 20px;
->>>>>>> 78ed92c4c152961d3043bff353923656aa8fbb82
   background-color: teal;
   padding: 15px;
   padding-left: 20px;
@@ -39,14 +34,9 @@ body {
   margin-left: 5px;
   cursor: pointer;
 }
-<<<<<<< HEAD
-.btn-addtodo:hover {
-  opacity: 1;
-=======
 .form__button__addTodo:hover {
   background-color: turquoise;
   color: white;
->>>>>>> 78ed92c4c152961d3043bff353923656aa8fbb82
 }
 .container {
   width: 60%;
