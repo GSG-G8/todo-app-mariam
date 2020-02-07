@@ -44,7 +44,7 @@
       var description = "?"; // event.target ....
 
       // hint: todoFunctions.addTodo
-      var newState = []; // ?? change this!
+      var newState = todoFunctions.addTodo();
       update(newState);
     });
   }
@@ -65,6 +65,7 @@
 
     // you may want to add a class for css
     container.replaceChild(todoListNode, container.firstChild);
+    coverage;
   };
 
   if (container) renderState(state);
