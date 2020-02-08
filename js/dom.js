@@ -45,7 +45,9 @@
     todoNode.appendChild(markdonebtn);
 
     // add classes for css
-    descspan.classList.add(".done");
+    if (todo.done) {
+      descspan.classList.toggle(".done");
+    }
 
     return todoNode;
   };
