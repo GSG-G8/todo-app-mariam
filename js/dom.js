@@ -70,7 +70,7 @@
       // hint: todoFunctions.addTodo
       const newState = todoFunctions.addTodo(state, description);
       localStorage.setItem("state", JSON.stringify(newState));
-      event.target.elements[0]["value"] = "";
+      event.target.event.target.inputdesc.value = "";
       update(newState);
     });
   }
