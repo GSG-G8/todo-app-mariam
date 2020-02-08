@@ -5,7 +5,6 @@
   // This is the dom node where we will keep our todo
   const container = document.getElementById("todo-container");
   const addTodoForm = document.getElementById("add-todo");
-  let state = [];
   if (JSON.parse(localStorage.getItem("state"))) {
     state = JSON.parse(localStorage.getItem("state"));
   } else {
@@ -49,9 +48,11 @@
     todoNode.appendChild(markdonebtn);
 
     // add classes for css
-    // if (todo.done) {
-    //   descspan.classList.toggle(".done");
-    // }
+    for (let i = 0; i < state.lngth; i++) {
+      if (state.done) {
+        descspan.classList.toggle(".done");
+      }
+    }
 
     return todoNode;
   };
