@@ -65,7 +65,7 @@
       // what is inside event.target?
       event.preventDefault();
 
-      const description = event["inputdesc"]; // event.target ....
+      const description = event.target.inputdesc.value; // event.target ....
 
       // hint: todoFunctions.addTodo
       const newState = todoFunctions.addTodo(state, description);
