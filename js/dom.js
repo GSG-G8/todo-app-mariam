@@ -9,12 +9,11 @@
   if (JSON.parse(localStorage.getItem("state"))) {
     state = JSON.parse(localStorage.getItem("state"));
   } else {
-    state = [
-      { id: -3, description: "first todo" },
-      { id: -2, description: "second todo" },
-      { id: -1, description: "third todo" }
-    ]; // this is our initial todoList
+    state = [];
+
+    // this is our initial todoList
   }
+  console.log(state);
   // This function takes a todo, it returns the DOM node representing that todo
 
   const createTodoNode = function(state) {
@@ -23,6 +22,7 @@
 
     // add span holding description
     const descspan = document.createElement("span");
+    descspan.classList.add("descripton__span");
     descspan.textContent = state.description;
     todoNode.appendChild(descspan);
 
@@ -30,24 +30,28 @@
     const deleteButtonNode = document.createElement("button");
     deleteButtonNode.addEventListener("click", event => {
       const newState = todoFunctions.deleteTodo(state, todo.id);
-      // localStorage.setItem("state", JSON.stringify(newState));
+      localStorage.setItem("state", JSON.stringify(newState));
       update(newState);
     });
+    deleteButtonNode.classList.add("button_delete");
+    deleteButtonNode.textContent = "delete";
     todoNode.appendChild(deleteButtonNode);
 
     // add markTodo button
     const markdonebtn = document.createElement("button");
     markdonebtn.addEventListener("click", event => {
       const newState = todoFunctions.doneTodo(state, todo.id);
-      // localStorage.setItem("state", JSON.stringify(newState));
+      localStorage.setItem("state", JSON.stringify(newState));
       update(newState);
     });
+    markdonebtn.classList.add("button_done");
+    markdonebtn.textContent = "done";
     todoNode.appendChild(markdonebtn);
 
     // add classes for css
-    if (todo.done) {
-      descspan.classList.toggle(".done");
-    }
+    // if (todo.done) {
+    //   descspan.classList.toggle(".done");
+    // }
 
     return todoNode;
   };
@@ -64,7 +68,7 @@
 
       // hint: todoFunctions.addTodo
       const newState = todoFunctions.addTodo(state, description);
-      // localStorage.setItem("state", JSON.stringify(newState));
+      localStorage.setItem("state", JSON.stringify(newState));
       event.target.elements[0]["value"] = "";
       update(newState);
     });
@@ -79,6 +83,7 @@
   // you do not need to change this function
   var renderState = function(state) {
     var todoListNode = document.createElement("ul");
+    todoListNode.classList.add("ul__todo");
 
     state.forEach(function(todo) {
       todoListNode.appendChild(createTodoNode(todo));
@@ -86,7 +91,7 @@
 
     // you may want to add a class for css
     container.replaceChild(todoListNode, container.firstChild);
-    coverage;
+    // coverage;
   };
 
   if (container) renderState(state);

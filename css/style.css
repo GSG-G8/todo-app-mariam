@@ -3,11 +3,10 @@ body {
   margin: 0px;
   text-align: center;
   box-sizing: border-box;
-}
-body {
   background-color: #333;
   font-family: "Raleway", sans-serif;
 }
+
 .header__h1__title {
   margin-top: 50px;
   margin-bottom: 50px;
@@ -44,27 +43,45 @@ body {
   margin: auto;
   background-color: white;
 }
-.todo_item {
-  border-bottom: 2px solid #333;
-  text-align: left;
-}
-.span__todo {
+.descripton__span {
   text-align: left;
   color: #333;
   font-size: 1.2rem;
-  padding: 20px;
+  padding-right: 20px;
 }
 .form__label__description {
   color: white;
   font-size: 1.2rem;
 }
+.ul__todo {
+  list-style: none;
+  text-align: center;
+}
 
+.ul__todo li {
+  padding: 20px;
+  border-bottom: 2px solid #333;
+}
 .button_delete {
   border-radius: 20px;
-  padding: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 10px;
   border: none;
-  color: red;
-  background-color: white;
+  color: white;
+  background-color: red;
+  font-weight: 800;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.button_done {
+  border-radius: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 10px;
+  border: none;
+  color: white;
+  background-color: green;
   font-weight: 800;
   font-size: 1rem;
   cursor: pointer;
