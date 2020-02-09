@@ -15,14 +15,15 @@
   console.log(state);
   // This function takes a todo, it returns the DOM node representing that todo
 
-  const createTodoNode = function(state) {
+  const createTodoNode = function(todo) {
     const todoNode = document.createElement("li");
     // you will need to use addEventListener
 
     // add span holding description
     const descspan = document.createElement("span");
     descspan.classList.add("descripton__span");
-    descspan.textContent = state.description;
+    descspan.textContent = todo.description;
+    descspan.setAttribute("id", todo.id);
     todoNode.appendChild(descspan);
 
     // this adds the delete button
@@ -39,8 +40,14 @@
     // add markTodo button
     const markdonebtn = document.createElement("button");
     markdonebtn.addEventListener("click", event => {
-      const newState = todoFunctions.doneTodo(state, todo.id);
+      const newState = todoFunctions.markTodo(state, todo.id);
       localStorage.setItem("state", JSON.stringify(newState));
+
+      const markdesc = document.getElementById(todo.id);
+      if (todo.done) {
+        // event.target.classList.toggle("done");
+        markdesc.classList.toggle("done");
+      }
       update(newState);
     });
     markdonebtn.classList.add("button_done");
@@ -48,11 +55,6 @@
     todoNode.appendChild(markdonebtn);
 
     // add classes for css
-    for (let i = 0; i < state.lngth; i++) {
-      if (state.done) {
-        descspan.classList.toggle(".done");
-      }
-    }
 
     return todoNode;
   };
